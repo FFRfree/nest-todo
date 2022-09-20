@@ -13,7 +13,7 @@ import { UpdateTodoDto } from '../src/todo/dto/update-todo.dto';
 
 describe('TodoController (e2e)', () => {
   const typeOrmModule = TypeOrmModule.forRoot({
-    type: 'mariadb',
+    type: 'mysql',
     database: 'nest_todo',
     username: 'root',
     password: '123456',

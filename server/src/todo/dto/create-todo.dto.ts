@@ -2,7 +2,7 @@ import { TodoStatus } from '../entities/todo.entity';
 import { IsAlphanumeric, IsNumber, IsString } from 'class-validator';
 
 export class CreateTodoDto {
-  @IsAlphanumeric()
+  @IsString()
   title: string; // 标题
 
   @IsString()

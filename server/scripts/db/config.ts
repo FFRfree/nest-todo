@@ -3,7 +3,7 @@ import { Todo } from '../../src/todo/entities/todo.entity';
 import { ConnectionOptions } from 'typeorm/connection/ConnectionOptions';
 
 const ormConfig: ConnectionOptions = {
-  type: 'mariadb',
+  type: 'mysql',
   database: 'nest_todo',
   host: 'localhost',
   port: 3306,

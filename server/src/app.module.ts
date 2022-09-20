@@ -41,7 +41,7 @@ const libModules = [
         configService.get('db');
 
       return {
-        type: 'mariadb',
+        type: 'mysql',
         // .env 获取
         host,
         port,

@@ -36,12 +36,12 @@ services:
 #    depends_on:
 #      - mariadb
 #      - redis
-  mariadb:
-    image: mariadb
-    container_name: 'nest-todo-mariadb'
+  mysql:
+    image: mysql
+    container_name: 'nest-todo-mysql'
     environment:
-      MARIADB_ROOT_PASSWORD: '123456'
-      MARIADB_DATABASE: 'nest_todo'
+      MYSQL_ROOT_PASSWORD: '123456'
+      MYSQL_DATABASE: 'nest_todo'
     ports:
       - 3306:3306
     restart: always

@@ -34,21 +34,25 @@ async function bootstrap() {
       credentials: true,
     },
     bufferLogs: true,
-    logger: reportLogger,
+    // logger: reportLogger,
+    logger: ['verbose'],
   });
 
   app.useStaticAssets(join(__dirname, '..', 'upload_dist'));
 
   app.setGlobalPrefix('api');
+  app.useGlobalInterceptors(new LogInterceptor(reportLogger));
   app.useGlobalFilters(new HttpExceptionFilter(), new AllExceptionFilter());
-  app.useGlobalPipes(new ValidationPipe({
-    // fix parameter escape    
-    whitelist: true,
-  }));
-  app.useGlobalInterceptors(
-    new LogInterceptor(reportLogger),
-    new TransformInterceptor(),
+  app.useGlobalPipes(
+    new ValidationPipe({
+      // fix parameter escape
+      whitelist: true,
+      exceptionFactory(errors) {
+        throw new Error(JSON.stringify(errors));
+      },
+    }),
   );
+  app.useGlobalInterceptors(new TransformInterceptor());
 
   setupSwagger(app);
 

@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { FC, useContext, useEffect, useRef, useState } from 'react';
 import io, { Socket } from 'socket.io-client';
 import { wsURL } from '../../constants';
